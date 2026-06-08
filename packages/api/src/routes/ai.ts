@@ -4,7 +4,8 @@ import { requireAuth } from '../plugins/auth.js'
 const FREE_DAILY_QUOTA = 3
 const LOGMEAL_TIMEOUT_MS = 5000
 
-async function getDailyUsage(supabase: ReturnType<(typeof import('@supabase/supabase-js'))['createClient']>, userId: string): Promise<number> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function getDailyUsage(supabase: any, userId: string): Promise<number> {
   const today = new Date().toISOString().slice(0, 10)
   const { count } = await supabase
     .from('ai_scan_logs')
@@ -17,7 +18,8 @@ async function getDailyUsage(supabase: ReturnType<(typeof import('@supabase/supa
   return count ?? 0
 }
 
-async function getUserTier(supabase: ReturnType<(typeof import('@supabase/supabase-js'))['createClient']>, userId: string): Promise<string> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function getUserTier(supabase: any, userId: string): Promise<string> {
   const { data } = await supabase
     .from('subscriptions')
     .select('tier')
@@ -73,7 +75,8 @@ export const aiRoutes: FastifyPluginAsync = async (app) => {
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), LOGMEAL_TIMEOUT_MS)
 
-    let logmealResult: { recognition_results?: Array<{ name: string; prob: number }> } | null = null
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let logmealResult: any = null
 
     try {
       const formData = new FormData()

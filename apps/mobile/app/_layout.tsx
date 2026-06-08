@@ -1,19 +1,43 @@
 import { useEffect } from 'react'
-import { Stack } from 'expo-router'
+import { router, Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
+import { AuthProvider, useAuth } from '../src/contexts/AuthContext'
+import { api } from '../src/lib/api'
 
 SplashScreen.preventAutoHideAsync()
 
-export default function RootLayout() {
+function RootNavigator() {
+  const { session, loading } = useAuth()
+
   useEffect(() => {
+    if (loading) return
     SplashScreen.hideAsync()
-  }, [])
+
+    if (!session) {
+      router.replace('/auth')
+      return
+    }
+
+    // Check if onboarding is complete
+    api.get('/users/profile')
+      .then(() => router.replace('/(tabs)'))
+      .catch(() => router.replace('/onboarding/disclaimer'))
+  }, [session, loading])
 
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="onboarding" options={{ headerShown: false }} />
-      <Stack.Screen name="auth" options={{ headerShown: false }} />
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="auth" />
+      <Stack.Screen name="onboarding" />
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="add-food" options={{ presentation: 'modal' }} />
     </Stack>
+  )
+}
+
+export default function RootLayout() {
+  return (
+    <AuthProvider>
+      <RootNavigator />
+    </AuthProvider>
   )
 }

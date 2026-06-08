@@ -1,7 +1,7 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { z } from 'zod'
 import { requireAuth } from '../plugins/auth.js'
-import coachingMessages from '../data/coaching-messages.json' assert { type: 'json' }
+import coachingMessages from '../data/coaching-messages.json' with { type: 'json' }
 
 type MessageLibrary = Record<string, Array<{ key: string; text: string }>>
 

@@ -2,9 +2,14 @@ import fp from 'fastify-plugin'
 import { createClient } from '@supabase/supabase-js'
 import type { FastifyPluginAsync } from 'fastify'
 
+// Using `any` here because Supabase DB types are generated separately.
+// Run: npx supabase gen types typescript --project-id vrhcvyppkepjoylkqhsp > src/types/database.gen.ts
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type SupabaseAny = ReturnType<typeof createClient<any>>
+
 declare module 'fastify' {
   interface FastifyInstance {
-    supabase: ReturnType<typeof createClient>
+    supabase: SupabaseAny
   }
 }
 
@@ -20,7 +25,8 @@ const supabasePlugin: FastifyPluginAsync = async (app) => {
     auth: { persistSession: false },
   })
 
-  app.decorate('supabase', client)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  app.decorate('supabase', client as any)
 }
 
 export default fp(supabasePlugin)
