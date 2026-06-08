@@ -27,13 +27,20 @@
         "backgroundColor": "#ffffff"
       },
       "package": "app.nutrisnap.mobile",
-      "permissions": ["CAMERA"]
+      "permissions": ["CAMERA", "READ_EXTERNAL_STORAGE"]
     },
     "plugins": [
       "expo-router",
       [
         "expo-camera",
         { "cameraPermission": "NutriSnap usa la cámara para identificar alimentos." }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "NutriSnap accede a tus fotos para analizar alimentos.",
+          "cameraPermission": "NutriSnap usa la cámara para identificar alimentos."
+        }
       ],
       [
         "expo-notifications",
