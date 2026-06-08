@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "NutriSnap",
+    "slug": "nutrisnap",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "nutrisnap",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.nutrisnap.mobile",
+      "infoPlist": {
+        "NSCameraUsageDescription": "NutriSnap usa la cámara para identificar alimentos por foto.",
+        "NSPhotoLibraryUsageDescription": "NutriSnap accede a tus fotos para analizar alimentos."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "app.nutrisnap.mobile",
+      "permissions": ["CAMERA"]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        { "cameraPermission": "NutriSnap usa la cámara para identificar alimentos." }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#4CAF50"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "TBD"
+      }
+    }
+  }
+}

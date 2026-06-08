@@ -1,0 +1,31 @@
+{
+  "name": "@nutrisnap/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.0",
+    "@fastify/helmet": "^11.0.0",
+    "@fastify/multipart": "^8.0.0",
+    "@fastify/rate-limit": "^9.0.0",
+    "@nutrisnap/shared": "workspace:*",
+    "@supabase/supabase-js": "^2.44.0",
+    "fastify": "^4.28.0",
+    "fastify-plugin": "^4.5.0",
+    "ioredis": "^5.4.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "protein_deficit": [
+    { "key": "prot_1", "text": "Te faltaron {gap}g de proteína hoy. ¿Querés ver qué podés sumar?" },
+    { "key": "prot_2", "text": "La proteína quedó un poco corta hoy. Un snack pequeño lo resuelve." },
+    { "key": "prot_3", "text": "Hoy te quedaron {gap}g de proteína. Mañana es una nueva oportunidad." }
+  ],
+  "calorie_excess": [
+    { "key": "cal_ex_1", "text": "Hoy superaste un poco el objetivo calórico. Cada día es diferente." },
+    { "key": "cal_ex_2", "text": "Pasaste el objetivo de hoy. Eso pasa — lo importante es el patrón de la semana." },
+    { "key": "cal_ex_3", "text": "El objetivo de hoy se fue un poco. Mañana empezás de cero." }
+  ],
+  "calorie_deficit": [
+    { "key": "cal_def_1", "text": "Te quedan {kcal_gap} kcal para hoy. ¿Necesitás sumar algo?" },
+    { "key": "cal_def_2", "text": "Hoy estás comiendo por debajo del objetivo. Asegurate de comer suficiente." }
+  ],
+  "carbs_deficit": [
+    { "key": "carbs_1", "text": "Los carbohidratos quedaron bajos hoy. Son tu fuente de energía principal." },
+    { "key": "carbs_2", "text": "Hoy te faltaron algunos carbohidratos. Una fruta o cereal puede ayudar." }
+  ],
+  "fat_deficit": [
+    { "key": "fat_1", "text": "Las grasas saludables también son importantes. Hoy quedaron un poco bajas." },
+    { "key": "fat_2", "text": "Hoy te faltaron grasas en el plan. Un puñado de nueces o palta lo equilibra." }
+  ],
+  "streak_broken": [
+    { "key": "streak_1", "text": "Ayer no registraste. ¡Hoy es un día nuevo para retomar el hábito!" },
+    { "key": "streak_2", "text": "Un día sin registrar no borra todo lo que lograste. Seguí adelante." }
+  ],
+  "goal_reached": [
+    { "key": "goal_1", "text": "¡Hoy llegaste a tu objetivo! Eso es constancia en acción." },
+    { "key": "goal_2", "text": "Objetivo del día cumplido. Cada día que registrás es un paso más." }
+  ],
+  "weekly_check": [
+    { "key": "weekly_1", "text": "Esta semana registraste {streak_days} días. El hábito se construye así, de a poco." }
+  ],
+  "on_track": [
+    { "key": "on_track_1", "text": "Vas muy bien hoy. Seguí así." },
+    { "key": "on_track_2", "text": "Todo en orden por hoy. La consistencia es la clave." },
+    { "key": "on_track_3", "text": "Buen trabajo hoy. Tus registros te ayudan a entender cómo te alimentás." }
+  ]
+}
